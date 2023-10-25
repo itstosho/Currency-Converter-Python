@@ -1,0 +1,30 @@
+from tkinter import Tk, ttk
+from tkinter import *
+
+from PIL import Image, ImageTk
+
+# colours
+col0 = "#FFFFFF" #White
+col1 = "#333333" #Black
+
+window = Tk()
+window.geometry('300x320')
+window.title('Currency Converter')
+window.configure(bg=col1)
+window.resizable(height=FALSE, width=FALSE)
+
+top = Frame(window, width=300, height=60, bg=col1)  # Changed the height to 100 and background color to col1
+top.grid(row=0, column=0)
+
+main = Frame(window, width=300, height=260, bg=col0)  # Changed the background color to col2
+main.grid(row=1, column=0)
+
+icon = Image.open('Currency Converter-Python/CurrencyConverterLoo.png')
+icon = icon.resize((40,40))
+icon = ImageTk.PhotoImage(icon)
+app_name = Label (top, image=icon, compound=LEFT, text="currency converter", height=5, padx=13, pady=30, anchor=CENTER, font='Arial 16 bold', bg=col0, fg=col1 )
+app_name.place(x=0,y=0)
+
+result = Label (top, image=icon, compound=LEFT, text=" ", height=5, padx=13, pady=30, anchor=CENTER, font='Ivy 16 bold', bg=col0, fg=col1 )
+
+window.mainloop()
